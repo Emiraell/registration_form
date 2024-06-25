@@ -4,12 +4,12 @@ import diocese from "../assests/lafia.png";
 
 export default function Header() {
   return (
-    <div className="flex justify-around pt-6 text-center">
+    <div className="flex justify-around pt-6 text-center px-2">
       <div>
         <Image
           src={youth}
           alt="anglican youth logo"
-          className="w-20 rounded-full"
+          className="w-14 md:w-20 rounded-full"
         />
       </div>
       <div className="uppercase font-bold">
@@ -30,7 +30,7 @@ export default function Header() {
         <Image
           src={diocese}
           alt="anglican youth logo"
-          className="w-20 rounded-full"
+          className="md:w-20 rounded-full w-14 "
         />
       </div>
     </div>
