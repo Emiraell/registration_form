@@ -4,7 +4,7 @@ export default function Relationship() {
     <div className="pt-8 md:w-[80%] relative">
       <label htmlFor="relationship">
         Relationship Status
-        <span className="text-red-500 text-sm font-bold">&#42;</span>
+        <span className="text-red-500 text-sm font-bold"> &#42;</span>
       </label>
       <div className="flex justify-between items-center">
         {relationships.map((relationship) => (

@@ -3,6 +3,7 @@ export default function Competition() {
     "Bible quiz",
     "Music",
     "Volleyball",
+    "Football",
     "Race",
     "Inddor Games(whot,Ludo etc)",
     "None",
@@ -11,12 +12,12 @@ export default function Competition() {
     <div className="relative pt-8">
       <label htmlFor="competition">
         Competitons
-        <span className="text-red-500 text-sm font-bold">&#42;</span>
+        <span className="text-red-500 text-sm font-bold"> &#42;</span>
       </label>
       <p className="text-blue-400 text-xs py-2">
         Please select competitions you will be partaking in
       </p>
-      <div className="md:flex gap-x-5">
+      <div className="md:flex gap-x-5 overflow-x-auto">
         {competitions.map((competition) => (
           <div
             key={competition}

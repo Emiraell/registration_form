@@ -43,7 +43,7 @@ export default function Archdeaconry() {
       <div className="relative">
         <label htmlFor="archdeaconry" className="block">
           Archdeaconry
-          <span className="text-red-500 text-sm font-bold">&#42;</span>
+          <span className="text-red-500 text-sm font-bold"> &#42;</span>
         </label>
         <select
           name="archdeaconry"
