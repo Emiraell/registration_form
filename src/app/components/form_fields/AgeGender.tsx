@@ -7,7 +7,7 @@ export default function AgeGender() {
   ];
   const genders: string[] = ["Male", "Female"];
   return (
-    <div className="pt-6 flex justify-around items-start">
+    <div className="pt-6 flex justify-between items-start w-[80%]">
       <div className="relative">
         <label htmlFor="age">
           Age <span className="text-red-500 text-sm font-bold">&#42;</span>
