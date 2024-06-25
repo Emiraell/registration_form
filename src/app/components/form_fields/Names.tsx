@@ -1,6 +1,7 @@
 import React from "react";
+import { Iprops } from "./AgeGender";
 
-export default function Names() {
+export default function Names({ register, errors }: Iprops) {
   return (
     <>
       <div className="relative">

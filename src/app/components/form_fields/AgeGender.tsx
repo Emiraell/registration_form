@@ -1,4 +1,10 @@
-export default function AgeGender() {
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+
+export interface Iprops {
+  register: UseFormRegister<any>;
+  errors: FieldErrors<FieldValues>;
+}
+export default function AgeGender({ register, errors }: Iprops) {
   const ages: string[] = [
     "12-17 years",
     "13-24 years",

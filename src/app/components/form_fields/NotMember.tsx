@@ -1,4 +1,6 @@
-export default function NotMember() {
+import { Iprops } from "./AgeGender";
+
+export default function NotMember({ register, errors }: Iprops) {
   return (
     <div className="md:flex gap-6">
       <div className="relative pt-8">

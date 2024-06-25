@@ -1,4 +1,6 @@
-export default function Relationship() {
+import { Iprops } from "./AgeGender";
+
+export default function Relationship({ register, errors }: Iprops) {
   const relationships = ["Single", "Engaged", "Married"];
   return (
     <div className="pt-8 md:w-[80%] relative">

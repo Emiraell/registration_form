@@ -1,4 +1,6 @@
-export default function UnitChurch() {
+import { Iprops } from "./AgeGender";
+
+export default function UnitChurch({ register, errors }: Iprops) {
   return (
     <div className="relative pt-8">
       <label htmlFor="unit">

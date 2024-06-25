@@ -1,4 +1,6 @@
-export default function Archdeaconry() {
+import { Iprops } from "./AgeGender";
+
+export default function Archdeaconry({ register, errors }: Iprops) {
   const archdeaconries: string[] = [
     "None",
     "Agyaragu",

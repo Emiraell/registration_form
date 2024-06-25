@@ -1,4 +1,6 @@
-export default function Competition() {
+import { Iprops } from "./AgeGender";
+
+export default function Competition({ register, errors }: Iprops) {
   const competitions: string[] = [
     "Bible quiz",
     "Music",
