@@ -44,7 +44,8 @@ export default function Names() {
 
       <div className="relative">
         <label htmlFor="email">
-          Email <span className="text-red-500 text-sm font-bold">&#42;</span>
+          Email / phone number
+          <span className="text-red-500 text-sm font-bold">&#42;</span>
         </label>
         <input
           type="text"
