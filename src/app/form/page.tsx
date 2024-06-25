@@ -1,5 +1,6 @@
 import AgeGender from "../components/form_fields/AgeGender";
 import Archdeaconry from "../components/form_fields/Archdeaconry";
+import Competition from "../components/form_fields/Competition";
 import Names from "../components/form_fields/Names";
 import Relationship from "../components/form_fields/Relationship";
 
@@ -10,6 +11,7 @@ export default function FormPage() {
       <AgeGender />
       <Relationship />
       <Archdeaconry />
+      <Competition />
     </div>
   );
 }
