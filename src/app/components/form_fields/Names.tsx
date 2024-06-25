@@ -10,7 +10,7 @@ export default function Names() {
         <input
           type="text"
           id="surname"
-          className="bg-gray-200 outline-none rounded py-1 px-2 w-full"
+          className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
           placeholder="Joseph"
         />
         <p className="text-red-600 absolute top-2 right-4 text-xs">error</p>
@@ -25,7 +25,7 @@ export default function Names() {
           <input
             type="text"
             id="firstname"
-            className="bg-gray-200 outline-none rounded py-1 px-2 w-full"
+            className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
             placeholder="Chijioke"
           />
           <p className="text-red-600 absolute top-2 right-4 text-xs">error</p>
@@ -36,8 +36,8 @@ export default function Names() {
           <input
             type="text"
             id="middle"
-            className="bg-gray-200 outline-none rounded py-1 px-2 w-full"
-            placeholder="Joseph"
+            className="bg-gray-100 outline-none rounded py-1 px-2 w-full"
+            placeholder="Banjoko"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function Names() {
         <input
           type="text"
           id="email"
-          className="bg-gray-200 outline-none rounded py-1 px-2 w-full"
+          className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
           placeholder="ayflafia@gmail.com"
         />
         <p className="text-red-600 absolute top-2 right-4 text-xs">error</p>

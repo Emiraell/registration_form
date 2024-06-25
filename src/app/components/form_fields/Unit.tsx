@@ -5,7 +5,7 @@ export default function UnitChurch() {
         Name of Unit Church
         <span className="text-red-500 text-sm font-bold"> &#42;</span>
       </label>
-      <p className="text-blue-400 text-xs py-2">
+      <p className="text-blue-400 text-xs py-2 italic">
         Enter Nil, if not from Lafia Diocese or an Anglican
       </p>
       <input

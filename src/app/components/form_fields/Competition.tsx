@@ -14,7 +14,7 @@ export default function Competition() {
         Competitons
         <span className="text-red-500 text-sm font-bold"> &#42;</span>
       </label>
-      <p className="text-blue-400 text-xs py-2">
+      <p className="text-blue-400 text-xs py-2 italic">
         Please select competitions you will be partaking in
       </p>
       <div className="md:flex gap-x-5 overflow-x-auto">
