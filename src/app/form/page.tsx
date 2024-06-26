@@ -12,6 +12,8 @@ import { Button } from "@mui/material";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/lib/config";
 
 export default function FormPage() {
   const schema = yup.object().shape({
@@ -36,11 +38,13 @@ export default function FormPage() {
     reset,
   } = useForm({ resolver: yupResolver(schema) });
 
-  const submitData = (data: any, e: any) => {
+  const postRef = collection(db, "candidates");
+  const submitData = async (data: any, e: any) => {
     e.preventDefault();
     try {
-      axios.post("/api", data);
-      alert("posted");
+      const res = await axios.post("/api", data);
+      await addDoc(postRef, { ...data });
+      alert(res.data.msg);
     } catch (err) {
       alert(err);
     }
