@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ayf Lafia fom",
   description:
-    "Designed for the pirpose of registering user for the 2024 conference",
+    "Registration portal for the Lafia diocese's diocesan youth Bible study conference 2024",
 };
 
 export default function RootLayout({

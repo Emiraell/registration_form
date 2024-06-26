@@ -53,5 +53,5 @@ export async function POST(request: NextRequest) {
   });
 
   // return next response
-  return NextResponse.json({ msg: "Details submitted" });
+  return NextResponse.json({ msg: "Registration submitted" });
 }
