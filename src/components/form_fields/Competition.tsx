@@ -14,12 +14,12 @@ export default function Competition({ register, errors }: Iprops) {
     <div className="relative pt-8">
       <label htmlFor="competition">
         Competitons
-        <span className="text-red-500 text-sm font-bold"> &#42;</span>
+        <span className="required"> &#42;</span>
       </label>
       <p className="text-blue-400 text-xs py-2 italic">
         Please select competitions you will be partaking in
       </p>
-      <div className="md:flex gap-x-5 overflow-x-auto">
+      <div>
         {competitions.map((competition) => (
           <div
             key={competition}

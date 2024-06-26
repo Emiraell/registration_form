@@ -5,3 +5,15 @@
 body {
   background-color: linear-gradient(to bottom, transparent, #e6dede) #d7d5d1;
 }
+
+.nameInput {
+  @apply bg-gray-100 outline-none rounded py-2 px-3 w-full;
+}
+
+.required {
+  @apply text-red-500 text-sm font-bold;
+}
+
+.error {
+  @apply text-red-600 absolute top-2 right-3 text-xs;
+}

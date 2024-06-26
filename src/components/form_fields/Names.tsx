@@ -6,38 +6,34 @@ export default function Names({ register, errors }: Iprops) {
     <>
       <div className="relative">
         <label htmlFor="surname">
-          Surname <span className="text-red-500 text-sm font-bold">&#42;</span>
+          Surname <span className="required">&#42;</span>
         </label>
         <input
           // useform register to register this input feild
           {...register("surname")}
           type="text"
           id="surname"
-          className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
+          className="nameInput"
           placeholder="Joseph"
         />
-        <p className="text-red-600 absolute top-2 right-4 text-xs">
-          {errors.surname?.message}
-        </p>
+        <p className="error">{errors.surname?.message}</p>
       </div>
 
       <div className="md:flex gap-4 py-4">
         <div className="relative">
           <label htmlFor="firstname">
             First name
-            <span className="text-red-500 text-sm font-bold">&#42;</span>
+            <span className="required">&#42;</span>
           </label>
           <input
             // useform register to register this input feild
             {...register("firstname")}
             type="text"
             id="firstname"
-            className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
+            className="nameInput"
             placeholder="Chijioke"
           />
-          <p className="text-red-600 absolute top-2 right-4 text-xs">
-            {errors.firstname?.message}
-          </p>
+          <p className="error">{errors.firstname?.message}</p>
         </div>
 
         <div className="relative pt-3 md:pt-0">
@@ -47,7 +43,7 @@ export default function Names({ register, errors }: Iprops) {
             {...register("middle")}
             type="text"
             id="middle"
-            className="bg-gray-100 outline-none rounded py-1 px-2 w-full"
+            className="nameInput"
             placeholder="Banjoko"
           />
         </div>
@@ -56,19 +52,17 @@ export default function Names({ register, errors }: Iprops) {
       <div className="relative">
         <label htmlFor="email">
           Email / phone number
-          <span className="text-red-500 text-sm font-bold">&#42;</span>
+          <span className="required">&#42;</span>
         </label>
         <input
           // useform register to register this input feild
           {...register("email")}
           type="text"
           id="email"
-          className="bg-gray-100 outline-none rounded py-2 px-3 w-full"
+          className="nameInput"
           placeholder="ayflafia@gmail.com"
         />
-        <p className="text-red-600 absolute top-2 right-4 text-xs">
-          {errors.email?.message}
-        </p>
+        <p className="error">{errors.email?.message}</p>
       </div>
     </>
   );

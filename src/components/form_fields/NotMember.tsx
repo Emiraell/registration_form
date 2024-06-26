@@ -13,7 +13,7 @@ export default function NotMember({ register, errors }: Iprops) {
           {...register("diocese")}
           type="text"
           id="diocese"
-          className="bg-gray-200 outline-none rounded py-2 px-3 w-full"
+          className="nameInput"
           placeholder="Diocese of Kubwa"
         />
       </div>
@@ -27,7 +27,7 @@ export default function NotMember({ register, errors }: Iprops) {
           {...register("church")}
           type="text"
           id="church"
-          className="bg-gray-200 outline-none rounded py-2 px-3 w-full"
+          className="nameInput "
           placeholder="Living Faith"
         />
       </div>

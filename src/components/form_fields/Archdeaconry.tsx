@@ -41,16 +41,16 @@ export default function Archdeaconry({ register, errors }: any) {
     "Others",
   ];
   return (
-    <div className="pt-8 flex justify-between  items-start gap-2">
+    <div className="pt-8 flex items-start gap-x-3 md:gap-x-8 lg:gap-x-12">
       <div className="relative">
         <label htmlFor="archdeaconry" className="block">
           Archdeaconry
-          <span className="text-red-500 text-sm font-bold"> &#42;</span>
+          <span className="required"> &#42;</span>
         </label>
         <select
           {...register("archdeaconry")}
           id="archdeaconry"
-          className="bg-gray-200 mt-2 rounded-sm py-1 px-2 w-32"
+          className="bg-gray-200 mt-2 rounded-sm py-1 px-2"
         >
           {archdeaconries.map((archdeaconry) => (
             <option key={archdeaconry} value={archdeaconry}>
@@ -65,13 +65,13 @@ export default function Archdeaconry({ register, errors }: any) {
 
       <div className="relative">
         <label htmlFor="position" className="block">
-          Position <span className="text-red-500 text-sm font-bold">&#42;</span>
+          Position <span className="required">&#42;</span>
         </label>
         <select
           // useform register to register this input feild
           {...register("position")}
           id="position"
-          className="bg-gray-200 mt-2 rounded-sm py-1 px-2 w-36"
+          className="bg-gray-200 mt-2 rounded-sm py-1 px-2"
         >
           {positions.map((position) => (
             <option key={position} value={position}>

@@ -17,7 +17,7 @@ export default function AgeGender({ register, errors }: Iprops) {
     <div className="pt-6 flex justify-between items-start w-[80%]">
       <div className="relative">
         <label htmlFor="age">
-          Age <span className="text-red-500 text-sm font-bold">&#42;</span>
+          Age <span className="required">&#42;</span>
         </label>
         {ages.map((age) => (
           <div
@@ -44,7 +44,7 @@ export default function AgeGender({ register, errors }: Iprops) {
 
       <div className="relative">
         <label htmlFor="gender">
-          Gender <span className="text-red-500 text-sm font-bold">&#42;</span>
+          Gender <span className="required">&#42;</span>
         </label>
         {genders.map((gender) => (
           <div key={gender} className="flex items-center py-2 gap-x-2">
