@@ -9,6 +9,7 @@ export default function NotMember({ register, errors }: Iprops) {
           Enter diocese name, if not from lafia diocese
         </p>
         <input
+          // useform register to register this input feild
           {...register("diocese")}
           type="text"
           id="diocese"
@@ -22,6 +23,7 @@ export default function NotMember({ register, errors }: Iprops) {
           Enter Church name, if not from an anglican
         </p>
         <input
+          // useform register to register this input feild
           {...register("church")}
           type="text"
           id="church"

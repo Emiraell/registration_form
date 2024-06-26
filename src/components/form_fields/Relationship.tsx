@@ -13,6 +13,7 @@ export default function Relationship({ register, errors }: Iprops) {
           <div key={relationship} className=" gap-1 flex items-center">
             <div>
               <input
+                // useform register to register this input feild
                 {...register("relationship")}
                 value={relationship}
                 type="radio"

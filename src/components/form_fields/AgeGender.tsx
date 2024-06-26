@@ -1,5 +1,6 @@
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
+// interface for all form feild component received props
 export interface Iprops {
   register: UseFormRegister<any>;
   errors: any;
@@ -24,12 +25,19 @@ export default function AgeGender({ register, errors }: Iprops) {
             className=" text-start gap-1 flex items-center gap-x- py-2"
           >
             <div>
-              <input value={age} type="radio" id="age" {...register("age")} />
+              <input
+                value={age}
+                type="radio"
+                id="age"
+                // useform register to register this input feild
+                {...register("age")}
+              />
             </div>
             <div>{age}</div>
           </div>
         ))}
         <p className="text-red-600 absolute top-1 right-0 text-xs">
+          {/* error message */}
           {errors.age?.message}
         </p>
       </div>
@@ -42,6 +50,7 @@ export default function AgeGender({ register, errors }: Iprops) {
           <div key={gender} className="flex items-center py-2 gap-x-2">
             <div>
               <input
+                // useform register to register this input feild
                 {...register("gender")}
                 value={gender}
                 type="radio"

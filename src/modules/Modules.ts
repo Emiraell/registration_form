@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// schema for user data and properties
 const schema = new mongoose.Schema({
   surname: { type: String, require: true },
   firstname: { type: String, require: true },

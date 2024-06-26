@@ -68,6 +68,7 @@ export default function Archdeaconry({ register, errors }: any) {
           Position <span className="text-red-500 text-sm font-bold">&#42;</span>
         </label>
         <select
+          // useform register to register this input feild
           {...register("position")}
           id="position"
           className="bg-gray-200 mt-2 rounded-sm py-1 px-2 w-36"

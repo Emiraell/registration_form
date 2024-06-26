@@ -1,4 +1,5 @@
 "use client";
+// import page component, hooks and apis
 import { useForm } from "react-hook-form";
 import Footer from "../../components/Footer";
 import AgeGender from "../../components/form_fields/AgeGender";
@@ -26,6 +27,7 @@ import {
 } from "@/utils/utils";
 
 export default function FormPage() {
+  // useform
   const {
     register,
     formState: { errors },
@@ -33,31 +35,40 @@ export default function FormPage() {
     reset,
   } = useForm({ resolver: yupResolver(schema) });
 
+  // firebase database collection to send user details to
   const postRef = collection(db, "candidates");
 
+  // all users registered in both the mongose and firestore db
   const [users, setUsers] = useState<UserDetails[]>([]);
 
-  const getUserMail = async () => {
-    const res = await axios("/api");
-    setUsers(res.data.results);
-  };
-
-  useEffect(() => {
-    getUserMail();
-  }, []);
+  // submit user funtion
   const submitData = async (data: any, e: any) => {
     e.preventDefault();
+
+    // fetch users from the database and assign them to the users state
+    const res = await axios("/api");
+    await setUsers(res.data.results);
+
+    // check if user is already registered
     const alreadyRegister = users.find((user) => user.email === data.email);
+
     if (alreadyRegister) {
+      // alert user if already registered
       alert(
         "email or phone already registered, please use another email or phone number"
       );
     } else {
+      // send user details to the database if user email/phone number isn't registered yet
       try {
+        // send user data to the mongose database
         const res = await axios.post("/api", data);
+
+        // send user data to the firestore database
         await addDoc(postRef, { ...data });
+        // toast on success
         toast.success(res.data.msg);
 
+        // message to send to the registration team email address
         const message = `Names: ${data.surname} ${data.firstname} ${
           data.middle !== "" && data.middle
         }, Email/Phone number: ${data.email}, Gender: ${data.gender}, age: ${
@@ -71,6 +82,8 @@ export default function FormPage() {
         }, ${data.diocese !== "" && `Diocese: ${data.diocese}`}, ${
           data.church !== "" && `Church: ${data.church}`
         }`;
+
+        // message template
         const templateParams = {
           from_name: data.firstname,
           from_email: data.email,
@@ -78,8 +91,10 @@ export default function FormPage() {
           message,
         };
 
+        // send to registration team email address
         emailjs.send(serviceID, templateID, templateParams, publicKey);
       } catch (err: any) {
+        // toast on error
         toast.error(err);
       }
       reset();
@@ -88,7 +103,6 @@ export default function FormPage() {
   return (
     <>
       <ToastContainer theme="dark" />
-
       <form
         className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%] shadow-md"
         onSubmit={handleSubmit(submitData)}

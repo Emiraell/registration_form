@@ -11,6 +11,7 @@ export default function UnitChurch({ register, errors }: Iprops) {
         Enter Nil, if not from Lafia Diocese or an Anglican
       </p>
       <input
+        // useform register to register this input feild
         {...register("unit")}
         type="text"
         id="unit"

@@ -28,6 +28,7 @@ export default function Competition({ register, errors }: Iprops) {
             <div>
               <input
                 value={competition}
+                // useform register to register this input feild
                 {...register("competition")}
                 type="checkbox"
                 id="competition"

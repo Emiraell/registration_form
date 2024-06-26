@@ -9,6 +9,7 @@ export default function Names({ register, errors }: Iprops) {
           Surname <span className="text-red-500 text-sm font-bold">&#42;</span>
         </label>
         <input
+          // useform register to register this input feild
           {...register("surname")}
           type="text"
           id="surname"
@@ -27,6 +28,7 @@ export default function Names({ register, errors }: Iprops) {
             <span className="text-red-500 text-sm font-bold">&#42;</span>
           </label>
           <input
+            // useform register to register this input feild
             {...register("firstname")}
             type="text"
             id="firstname"
@@ -41,6 +43,7 @@ export default function Names({ register, errors }: Iprops) {
         <div className="relative pt-3 md:pt-0">
           <label htmlFor="middle">Middle name</label>
           <input
+            // useform register to register this input feild
             {...register("middle")}
             type="text"
             id="middle"
@@ -56,6 +59,7 @@ export default function Names({ register, errors }: Iprops) {
           <span className="text-red-500 text-sm font-bold">&#42;</span>
         </label>
         <input
+          // useform register to register this input feild
           {...register("email")}
           type="text"
           id="email"

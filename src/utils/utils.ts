@@ -19,6 +19,7 @@ export const serviceID = "service_s6ehvor";
 export const publicKey = "YWPceGpY8Qy9IS3lK";
 export const templateID = "template_y8pnh98";
 
+// user data interface
 export interface UserDetails {
   surname: string;
   firstname: string;
