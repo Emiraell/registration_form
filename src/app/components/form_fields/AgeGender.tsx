@@ -2,7 +2,7 @@ import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 export interface Iprops {
   register: UseFormRegister<any>;
-  errors: FieldErrors<FieldValues>;
+  errors: any;
 }
 export default function AgeGender({ register, errors }: Iprops) {
   const ages: string[] = [
@@ -24,12 +24,14 @@ export default function AgeGender({ register, errors }: Iprops) {
             className=" text-start gap-1 flex items-center gap-x- py-2"
           >
             <div>
-              <input value={age} name="age" type="radio" id="age" />
+              <input value={age} type="radio" id="age" {...register("age")} />
             </div>
             <div>{age}</div>
           </div>
         ))}
-        <p className="text-red-600 absolute top-0 right-9 text-xs">error</p>
+        <p className="text-red-600 absolute top-1 right-0 text-xs">
+          {errors.age?.message}
+        </p>
       </div>
 
       <div className="relative">
@@ -39,13 +41,20 @@ export default function AgeGender({ register, errors }: Iprops) {
         {genders.map((gender) => (
           <div key={gender} className="flex items-center py-2 gap-x-2">
             <div>
-              <input name="gender" value={gender} type="radio" id="age" />
+              <input
+                {...register("gender")}
+                value={gender}
+                type="radio"
+                id="gender"
+              />
             </div>
             <div>{gender}</div>
           </div>
         ))}
 
-        <p className="text-red-600 absolute top-0 -right-7 text-xs">error</p>
+        <p className="text-red-600 absolute top-1 -right-24 text-xs">
+          {errors.gender?.message}
+        </p>
       </div>
     </div>
   );

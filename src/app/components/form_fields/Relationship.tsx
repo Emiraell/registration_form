@@ -13,8 +13,8 @@ export default function Relationship({ register, errors }: Iprops) {
           <div key={relationship} className=" gap-1 flex items-center">
             <div>
               <input
+                {...register("relationship")}
                 value={relationship}
-                name="relationship"
                 type="radio"
                 id="relationship"
               />
@@ -23,7 +23,9 @@ export default function Relationship({ register, errors }: Iprops) {
           </div>
         ))}
       </div>
-      <p className="text-red-600 absolute top-9 right-9 text-xs ">error</p>
+      <p className="text-red-600 absolute top-9 right-9 text-xs ">
+        {errors.relationship?.message}
+      </p>
     </div>
   );
 }

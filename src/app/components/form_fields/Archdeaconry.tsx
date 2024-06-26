@@ -1,6 +1,6 @@
 import { Iprops } from "./AgeGender";
 
-export default function Archdeaconry({ register, errors }: Iprops) {
+export default function Archdeaconry({ register, errors }: any) {
   const archdeaconries: string[] = [
     "None",
     "Agyaragu",
@@ -48,7 +48,7 @@ export default function Archdeaconry({ register, errors }: Iprops) {
           <span className="text-red-500 text-sm font-bold"> &#42;</span>
         </label>
         <select
-          name="archdeaconry"
+          {...register("archdeaconry")}
           id="archdeaconry"
           className="bg-gray-200 mt-2 rounded-sm py-1 px-2 w-32"
         >
@@ -58,7 +58,9 @@ export default function Archdeaconry({ register, errors }: Iprops) {
             </option>
           ))}
         </select>
-        <p className="text-red-600 absolute -bottom-5 right-0 text-xs">error</p>
+        <p className="text-red-600 absolute -bottom-5 right-0 text-xs">
+          {errors.archdeaconry?.message}
+        </p>
       </div>
 
       <div className="relative">
@@ -66,7 +68,7 @@ export default function Archdeaconry({ register, errors }: Iprops) {
           Position <span className="text-red-500 text-sm font-bold">&#42;</span>
         </label>
         <select
-          name="position"
+          {...register("position")}
           id="position"
           className="bg-gray-200 mt-2 rounded-sm py-1 px-2 w-36"
         >
@@ -76,7 +78,9 @@ export default function Archdeaconry({ register, errors }: Iprops) {
             </option>
           ))}
         </select>
-        <p className="text-red-600 absolute -bottom-5 right-0 text-xs">error</p>
+        <p className="text-red-600 absolute -bottom-5 right-0 text-xs">
+          {errors.position?.message}
+        </p>
       </div>
     </div>
   );

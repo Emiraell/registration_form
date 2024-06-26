@@ -11,12 +11,15 @@ export default function UnitChurch({ register, errors }: Iprops) {
         Enter Nil, if not from Lafia Diocese or an Anglican
       </p>
       <input
+        {...register("unit")}
         type="text"
         id="unit"
         className="bg-gray-200 outline-none rounded py-2 px-3 w-full"
         placeholder="St Peter's Angliacn, Keffi"
       />
-      <p className="text-red-600 absolute top-9 right-4 text-xs">error</p>
+      <p className="text-red-600 absolute top-9 -right-8 text-xs">
+        {errors.unit?.message}
+      </p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ export default function Competition({ register, errors }: Iprops) {
     "Volleyball",
     "Football",
     "Race",
-    "Inddor Games(whot,Ludo etc)",
+    "Indoor games(whot,Ludo etc)",
     "None",
   ];
   return (
@@ -28,7 +28,7 @@ export default function Competition({ register, errors }: Iprops) {
             <div>
               <input
                 value={competition}
-                name="competition"
+                {...register("competition")}
                 type="checkbox"
                 id="competition"
               />
@@ -37,7 +37,9 @@ export default function Competition({ register, errors }: Iprops) {
           </div>
         ))}
       </div>
-      <p className="text-red-600 absolute top-10 right-0 text-xs">error</p>
+      <p className="text-red-600 absolute top-10 right-0 text-xs">
+        {errors.competition?.message}
+      </p>
     </div>
   );
 }
