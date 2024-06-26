@@ -4,7 +4,7 @@ import diocese from "../assests/lafia.png";
 
 export default function Header() {
   return (
-    <div className="flex justify-around pt-6 text-center px-2">
+    <div className="flex justify-around pt-6 pb-2 text-center px-2 fixed top-0 w-[100%] z-10 bg-blue-50">
       <div>
         <Image
           src={youth}

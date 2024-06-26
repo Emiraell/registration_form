@@ -1,3 +1,7 @@
+export const getServerSideProps = () => {
+  console.log(process.env.PUBLIC_KEY);
+  return { props: { env: "hello" } };
+};
 import * as yup from "yup";
 export const schema = yup.object().shape({
   surname: yup.string().required("Name is required"),
@@ -14,10 +18,6 @@ export const schema = yup.object().shape({
   diocese: yup.string(),
   church: yup.string(),
 });
-
-export const serviceID = `${process.env.SERVICE_KEY}`;
-export const publicKey = `${process.env.PUBLIC_KEY}`;
-export const templateID = `${process.env.TEMPLATE_KEY}`;
 
 // user data interface
 export interface UserDetails {

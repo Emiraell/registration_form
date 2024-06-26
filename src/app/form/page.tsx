@@ -18,13 +18,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
 import { useEffect, useState } from "react";
-import {
-  publicKey,
-  schema,
-  serviceID,
-  templateID,
-  UserDetails,
-} from "@/utils/utils";
+import { schema, UserDetails } from "@/utils/utils";
+import { useRouter } from "next/navigation";
 
 export default function FormPage() {
   // useform
@@ -35,19 +30,27 @@ export default function FormPage() {
     reset,
   } = useForm({ resolver: yupResolver(schema) });
 
+  // router
+  const router = useRouter();
   // firebase database collection to send user details to
   const postRef = collection(db, "candidates");
 
   // all users registered in both the mongose and firestore db
   const [users, setUsers] = useState<UserDetails[]>([]);
 
+  const fetchUsers = async () => {
+    // fetch users from the database and assign them to the users state
+    const res = await axios("/api");
+    setUsers(res.data.results);
+  };
+  // fetch users on page load
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
   // submit user funtion
   const submitData = async (data: any, e: any) => {
     e.preventDefault();
-
-    // fetch users from the database and assign them to the users state
-    const res = await axios("/api");
-    await setUsers(res.data.results);
 
     // check if user is already registered
     const alreadyRegister = users.find((user) => user.email === data.email);
@@ -92,19 +95,28 @@ export default function FormPage() {
         };
 
         // send to registration team email address
-        emailjs.send(serviceID, templateID, templateParams, publicKey);
+        emailjs.send(
+          `${process.env.NEXT_PUBLIC_SERVICE_KEY}`,
+          `${process.env.NEXT_PUBLIC_TEMPLATE_KEY}`,
+          templateParams,
+          `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`
+        );
       } catch (err: any) {
         // toast on error
         toast.error(err);
       }
       reset();
+      // move to registered page after 2 seconds
+      setTimeout(() => {
+        router.push("/registered");
+      }, 1500);
     }
   };
   return (
     <>
       <ToastContainer theme="dark" />
       <form
-        className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%]"
+        className=" m-auto md:w-[60%] w-[80%] pt-40 lg:w-[45%]"
         onSubmit={handleSubmit(submitData)}
       >
         <Names register={register} errors={errors} />
