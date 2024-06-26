@@ -1,7 +1,3 @@
-export const getServerSideProps = () => {
-  console.log(process.env.PUBLIC_KEY);
-  return { props: { env: "hello" } };
-};
 import * as yup from "yup";
 export const schema = yup.object().shape({
   surname: yup.string().required("Name is required"),
