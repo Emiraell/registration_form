@@ -41,7 +41,7 @@ export default function Archdeaconry({ register, errors }: any) {
     "Others",
   ];
   return (
-    <div className="pt-8 flex items-start gap-x-3 md:gap-x-8 lg:gap-x-12">
+    <div className="pt-8 flex items-start gap-x-3 md:gap-x-8 lg:gap-x-12 overflow-x-hidden">
       <div className="relative">
         <label htmlFor="archdeaconry" className="block">
           Archdeaconry

@@ -104,7 +104,7 @@ export default function FormPage() {
     <>
       <ToastContainer theme="dark" />
       <form
-        className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%] shadow-md"
+        className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%]"
         onSubmit={handleSubmit(submitData)}
       >
         <Names register={register} errors={errors} />
