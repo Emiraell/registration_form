@@ -3,14 +3,14 @@ import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
 const connectDB = async () => {
-  const res = mongoose.connect(
+  await mongoose.connect(
     "mongodb+srv://ayfDatabase:Barca6psg1@atlascluster.fhchgtl.mongodb.net/lafia"
   );
 };
 connectDB();
 export async function GET() {
-  await UserModel.find({});
-  return NextResponse.json({ msg: "data fetched" });
+  const results = await UserModel.find({});
+  return NextResponse.json({ results: results });
 }
 
 export async function POST(request: NextRequest) {

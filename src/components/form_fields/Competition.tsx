@@ -37,7 +37,7 @@ export default function Competition({ register, errors }: Iprops) {
           </div>
         ))}
       </div>
-      <p className="text-red-600 absolute top-10 right-0 text-xs">
+      <p className="text-red-600 absolute top-12 -right-8 text-xs">
         {errors.competition?.message}
       </p>
     </div>
