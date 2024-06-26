@@ -14,6 +14,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/config";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
 
 export default function FormPage() {
   const schema = yup.object().shape({
@@ -39,21 +42,48 @@ export default function FormPage() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const postRef = collection(db, "candidates");
+
+  const serviceID = "service_s6ehvor";
+  const publicKey = "YWPceGpY8Qy9IS3lK";
+  const templateID = "template_y8pnh98";
   const submitData = async (data: any, e: any) => {
     e.preventDefault();
     try {
       const res = await axios.post("/api", data);
       await addDoc(postRef, { ...data });
-      alert(res.data.msg);
-    } catch (err) {
-      alert(err);
+      toast.success(res.data.msg);
+
+      const message = `Names: ${data.surname} ${data.firstname} ${
+        data.middle !== "" && data.middle
+      }, Email/Phone number: ${data.email}, Gender: ${data.gender}, age: ${
+        data.age
+      }, Relationship status: ${data.relationship}, Archdeaconry: ${
+        data.archdeaconry
+      }, Position: ${
+        data.position
+      }, Competitions to participate in: ${data.competition.join()}, Unit Church: ${
+        data.unit
+      }, ${data.diocese !== "" && `Diocese: ${data.diocese}`}, ${
+        data.church !== "" && `Church: ${data.church}`
+      }`;
+      const templateParams = {
+        from_name: data.firstname,
+        from_email: "emmzex19@gmail.com",
+        to_name: "DYC planning comitter",
+        message,
+      };
+
+      emailjs.send(serviceID, templateID, templateParams, publicKey);
+    } catch (err: any) {
+      toast.error(err);
     }
     reset();
   };
   return (
     <>
+      <ToastContainer theme="dark" />
       <form
-        className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%]"
+        className=" m-auto md:w-[60%] w-[80%] pt-14 lg:w-[45%] shadow-md"
         onSubmit={handleSubmit(submitData)}
       >
         <Names register={register} errors={errors} />
