@@ -20,7 +20,7 @@ export default function NotMember({ register, errors }: Iprops) {
       <div className="relative pt-8">
         <label htmlFor="church">Enter Church</label>
         <p className="text-blue-400 text-xs py-2 italic">
-          Enter Church name, if not from an anglican
+          Enter Church name, if not an anglican
         </p>
         <input
           // useform register to register this input feild
