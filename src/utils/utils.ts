@@ -15,9 +15,9 @@ export const schema = yup.object().shape({
   church: yup.string(),
 });
 
-export const serviceID = "service_s6ehvor";
-export const publicKey = "YWPceGpY8Qy9IS3lK";
-export const templateID = "template_y8pnh98";
+export const serviceID = `${process.env.SERVICE_KEY}`;
+export const publicKey = `${process.env.PUBLIC_KEY}`;
+export const templateID = `${process.env.TEMPLATE_KEY}`;
 
 // user data interface
 export interface UserDetails {

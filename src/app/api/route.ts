@@ -4,9 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // connect to mongoose project database
 const connectDB = async () => {
-  await mongoose.connect(
-    "mongodb+srv://ayfDatabase:Barca6psg1@atlascluster.fhchgtl.mongodb.net/lafia"
-  );
+  await mongoose.connect(`${process.env.MONGODB_KEY}`);
 };
 
 // call the function to connect on loading
