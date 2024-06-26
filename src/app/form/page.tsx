@@ -11,6 +11,7 @@ import UnitChurch from "../../components/form_fields/Unit";
 import { Button } from "@mui/material";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 
 export default function FormPage() {
   const schema = yup.object().shape({
@@ -37,7 +38,12 @@ export default function FormPage() {
 
   const submitData = (data: any, e: any) => {
     e.preventDefault();
-    console.log(data);
+    try {
+      axios.post("/api", data);
+      alert("posted");
+    } catch (err) {
+      alert(err);
+    }
     reset();
   };
   return (

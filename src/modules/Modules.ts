@@ -17,6 +17,6 @@ const schema = new mongoose.Schema({
 });
 
 export const UserModel =
-  mongoose.models.userForm || mongoose.model("userForm", schema);
+  mongoose.models.users || mongoose.model("users", schema);
 
 export default UserModel;

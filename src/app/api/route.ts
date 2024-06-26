@@ -6,11 +6,11 @@ const connectDB = async () => {
   const res = mongoose.connect(
     "mongodb+srv://ayfDatabase:Barca6psg1@atlascluster.fhchgtl.mongodb.net/lafia"
   );
-  console.log("connected");
 };
 connectDB();
 export async function GET() {
-  return NextResponse.json("backend");
+  await UserModel.find({});
+  return NextResponse.json({ msg: "data fetched" });
 }
 
 export async function POST(request: NextRequest) {
@@ -18,7 +18,9 @@ export async function POST(request: NextRequest) {
     age,
     archdeaconry,
     church,
+    competition,
     diocese,
+    email,
     firstname,
     gender,
     middle,
@@ -32,7 +34,9 @@ export async function POST(request: NextRequest) {
     age,
     archdeaconry,
     church,
+    competition,
     diocese,
+    email,
     firstname,
     gender,
     middle,
